@@ -81,4 +81,4 @@ python speech.py
 
 Feel free to contribute, report issues, or suggest improvements to make this AI Language Teacher even more powerful and user-friendly.
 
-Watch the [YouTube](hhttps://www.youtube.com/@johnny-codes) tutorial, like, share, star, and subscribe
+Watch the [YouTube](https://www.youtube.com/@johnny-codes) tutorial, like, share, star, and subscribe
