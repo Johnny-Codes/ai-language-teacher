@@ -62,7 +62,7 @@ def get_chat_response():
         chat_response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=messages,
-            max_tokens=256,
+            max_tokens=1024,
             temperature=0.9,
         )
         chat_response_content = chat_response.choices[0].message.content
@@ -97,6 +97,29 @@ def get_tts_response(chat_response_content):
         print("Exception: ", str(e))
 
 
+def english_translation(chat_response_content):
+    print("translating to English...")
+    authenticator = IAMAuthenticator(ibm_translate_api_key)
+    language_translator = LanguageTranslatorV3(
+        version="2018-05-01",
+        authenticator=authenticator,
+    )
+    language_translator.set_service_url(ibm_translate_url)
+    translation = language_translator.translate(
+        text=chat_response_content["text"],
+        model_id="es-en",
+    ).get_result()
+    eng_translation = translation["translations"][0]["translation"]
+    print(
+        json.dumps(
+            eng_translation,
+            indent=2,
+            ensure_ascii=False,
+        )
+    )
+    return eng_translation
+
+
 while True:
     input("Press Enter to start recording...")
     audio_data = get_audio()
@@ -116,3 +139,4 @@ while True:
     )
     print("chat response content", chat_response_content)
     tts_response = get_tts_response(chat_response_content)
+    eng_translation = english_translation(chat_response_content)
