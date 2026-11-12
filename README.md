@@ -1,3 +1,5 @@
+Further development is on my personal git [[git.pauljohns.dev]]
+
 # AI Language Teacher
 
 This Python project serves as an AI-powered language teacher, leveraging the capabilities of OpenAI's GPT-3.5 Turbo for dynamic conversations, IBM Watson Text-to-Speech for lifelike responses, and language translation to provide an interactive and educational experience.
