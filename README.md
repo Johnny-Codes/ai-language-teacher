@@ -1,4 +1,4 @@
-Further development is on [my personal git](git.pauljohns.dev)
+Further development is on [my personal git](https://git.pauljohns.dev)
 
 # AI Language Teacher
 
